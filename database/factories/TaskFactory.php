@@ -14,7 +14,9 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'status' => 1,
+            'file_url' => 'www.naoexiste.com'
         ];
     }
 }
