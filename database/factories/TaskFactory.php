@@ -15,6 +15,7 @@ class TaskFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'description' => $this->faker->sentence(),
             'status' => 1,
             'file_url' => 'www.naoexiste.com'
         ];
