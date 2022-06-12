@@ -9,6 +9,11 @@ class Task extends Model
 {
     use HasFactory;
 
+    public const BACKLOG = 0;
+    public const IN_PROGRESS = 1;
+    public const WAITING_CUSTOMER_APPROVAL = 2;
+    public const APPROVED = 3;
+
     protected $fillable = [
         'name',
         'description',

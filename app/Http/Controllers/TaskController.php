@@ -31,8 +31,8 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
-        if ($request->status != 1){
-            return response()->json(['erro' => 'As tarefas só podem ser criadas com status BACKLOG (1)'], 406);
+        if ($request->status != Task::BACKLOG){
+            return response()->json(['erro' => 'As tarefas só podem ser criadas com status BACKLOG (0)'], 406);
         }
 
         $task = Task::create($request->all());
@@ -101,7 +101,7 @@ class TaskController extends Controller
         try {
             $task = Task::findOrFail($id);
 
-            if ($task->status < 3){
+            if ($task->status < Task::APPROVED){
                 $task->update([
                     'status' => $task->status + 1
                 ]);
