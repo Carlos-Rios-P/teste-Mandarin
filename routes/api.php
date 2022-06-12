@@ -19,4 +19,10 @@ Route::apiResource('task', \App\Http\Controllers\TaskController::class);
 Route::patch('task/{id}/status', [TaskController::class, 'updateStatus']);
 Route::get('task/{id}/file_url', [TaskController::class, 'getUrl']);
 
-Route::apiResource('task.tag', \App\Http\Controllers\TagController::class);
+Route::apiResource('task.tag', \App\Http\Controllers\TagController::class)->only('store');
+Route::prefix('tag')->group(function(){
+    Route::get('/index', [TagController::class, 'index']);
+    Route::get('/show/{id}', [TagController::class, 'show']);
+    Route::delete('/delete/{id}', [TagController::class, 'delete']);
+    Route::put('/update/{id}', [TagController::class, 'update']);
+});
