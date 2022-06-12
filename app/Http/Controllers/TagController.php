@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -13,9 +14,11 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Task $task)
+    public function index()
     {
-        return $task->tag;
+        $tag = Tag::all();
+
+        return response()->json($tag);
     }
 
     /**
@@ -24,7 +27,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store($id, TagRequest $request)
     {
        $tag = Tag::create([
         'tag_name' => $request->tag_name,
@@ -42,10 +45,15 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $task = Task::findOrfail($id);
-        $task->tag;
+        try {
 
-        return response()->json($task, 200);
+            $tag = Tag::findOrFail($id);
+
+            return response()->json($tag, 200);
+
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => "Não possui nenhuma tag com o id $id"]);
+        }
     }
 
     /**
@@ -55,9 +63,20 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        try {
+
+            $tag = Tag::findOrFail($id);
+            $tag->update([
+                'tag_name' => $request->tag_name,
+            ]);
+
+            return response()->json($tag, 200);
+
+        } catch (\Throwable $th) {
+            echo 'oi';
+        }
     }
 
     /**
@@ -68,6 +87,8 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::destroy($id);
+
+        return response()->json(['sucess' => 'Tag excluída com sucesso']);
     }
 }
