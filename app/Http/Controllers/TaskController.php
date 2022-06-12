@@ -18,14 +18,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $qntTask = Task::count('id');
+        $taskAll = Task::with('tag')->get();
 
-        for ($i=1; $i <= $qntTask ; $i++) {
-
-            $task[] = Task::with('tag')->findOrFail($i);
-        }
-
-        return response()->json($task, 200);
+        return response()->json($taskAll, 200);
     }
 
     /**
@@ -36,9 +31,13 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
+        if ($request->status != 1){
+            return response()->json(['erro' => 'As tarefas só podem ser criadas com status BACKLOG (1)'], 406);
+        }
+
         $task = Task::create($request->all());
 
-        return response()->json($task, 200);
+        return response()->json(['sucess' => $task], 200);
     }
 
     /**
@@ -49,7 +48,16 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+
+            $task = Task::findOrfail($id);
+            $task->tag;
+
+            return response()->json(['sucess' => $task], 200);
+
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => "Tarefa com o id $id não encontrada"], 404);
+        }
     }
 
     /**
@@ -83,7 +91,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::destroy($id);
+
+        return response()->json(['sucess' => 'Tarefa deletada com sucesso']);
     }
 
     public function updateStatus($id)
@@ -103,6 +113,19 @@ class TaskController extends Controller
 
         } catch (\Throwable $th) {
             return response()->json(['erro' => "Não foi encontrada nenhuma tarefa com o id $id"]);
+        }
+    }
+
+    public function getUrl($id)
+    {
+        try {
+
+            $task = Task::findOrFail($id);
+
+            return response()->json($task->file_url, 200);
+
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => "Tarefa com id $id não escontrada no banco de dados"], 404);
         }
     }
 }
