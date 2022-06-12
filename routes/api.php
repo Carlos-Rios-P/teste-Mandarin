@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('task', \App\Http\Controllers\TaskController::class);
 Route::patch('task/{id}/status', [TaskController::class, 'updateStatus']);
+Route::get('task/{id}/file_url', [TaskController::class, 'getUrl']);
 
-Route::apiResource('task.tags', \App\Http\Controllers\TagController::class);
+Route::apiResource('task.tag', \App\Http\Controllers\TagController::class);
