@@ -9,6 +9,13 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'status',
+        'file_url'
+    ];
+
     public function tag(){
 
         return $this->hasMany(Tag::class);
