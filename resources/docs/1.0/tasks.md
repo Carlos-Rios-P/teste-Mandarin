@@ -111,7 +111,7 @@ Para excluir uma tarefa cujo o id foi informado na rota utilize a rota **`/api/t
 
 ## updateStatus
 
-Para realizar a atulização do status da tarefa a rota **`/api/task/:id/status`** com o método **`PATCH`**. Segue o exemplo de dados enviados:<br>
+Para realizar a atualização do status da tarefa a rota **`/api/task/:id/status`** com o método **`PATCH`**. Segue o exemplo de dados enviados:<br>
 O campo status segue uma regra de progressão : BACKLOG(0)->IN_PROGRESS(1)->WAITING_CUSTOMER_APPROVAL(2)->APPROVED(3)
 
 <larecipe-badge type="primary">PATCH</larecipe-badge>
