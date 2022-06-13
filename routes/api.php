@@ -23,6 +23,6 @@ Route::apiResource('task.tag', \App\Http\Controllers\TagController::class)->only
 Route::prefix('tag')->group(function(){
     Route::get('/index', [TagController::class, 'index']);
     Route::get('/show/{id}', [TagController::class, 'show']);
-    Route::delete('/delete/{id}', [TagController::class, 'delete']);
+    Route::delete('/delete/{id}', [TagController::class, 'destroy']);
     Route::put('/update/{id}', [TagController::class, 'update']);
 });
