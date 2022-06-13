@@ -13,7 +13,7 @@
 
 ## Index
 
-Para retornar todas as tags a rota **`/api/tag/index`** com o método **`GET`**. Segue o exemplo de dados enviados:
+Para retornar todas as tags utilize a rota **`/api/tag/index`** com o método **`GET`**.
 
 <larecipe-badge type="primary">GET</larecipe-badge>
 
@@ -54,7 +54,7 @@ Segue exemplo de um request body:
 
 ## Show
 
-Para retornar a tag com o id indicado na url utilize a rota **`/api/tag/show/:id`** com o método **`GET`**. Segue o exemplo de dados enviados:
+Para retornar a tag com o id indicado na url utilize a rota **`/api/tag/show/:id`** com o método **`GET`**.
 
 <larecipe-badge type="primary">GET</larecipe-badge>
 
@@ -67,7 +67,7 @@ Para retornar a tag com o id indicado na url utilize a rota **`/api/tag/show/:id
 
 ## Update
 
-Para fazer uma alteração nos dados de uma tag com o id informado na rota utilize a rota **`/api/tag/update/:id`** com o método **`PUT`**. Segue o exemplo de dados enviados:
+Para fazer uma alteração nos dados de uma tag cujo id informado na rota utilize a rota **`/api/tag/update/:id`** com o método **`PUT`**.
 
 <larecipe-badge type="primary">PUT</larecipe-badge>
 
@@ -84,7 +84,7 @@ Para fazer uma alteração nos dados de uma tag com o id informado na rota utili
 
 ## Delete
 
-Para excluir uma tag cujo o id foi informado na rota utilize a rota **`/api/tag/delete/:id`** com o método **`DELETE`**. Segue o exemplo de dados enviados:
+Para excluir uma tag cujo o id foi informado na rota utilize a rota **`/api/tag/delete/:id`** com o método **`DELETE`**. 
 
 <larecipe-badge type="primary">DELETE</larecipe-badge>
 

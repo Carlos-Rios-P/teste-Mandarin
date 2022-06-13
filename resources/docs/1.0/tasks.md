@@ -15,8 +15,7 @@
 
 ## Index
 
-Para retornar todas as tarefas e suas respectivas tags a rota **`/api/task`** com o método **`GET`**. Segue o exemplo de dados enviados:
-
+Para retornar todas as tarefas e suas respectivas tags a rota **`/api/task`** com o método **`GET`**.
 <larecipe-badge type="primary">GET</larecipe-badge>
 
 ```http
@@ -52,7 +51,7 @@ Segue exemplo de um request body:
     "sucess": {
         "name": "Tarefa teste",
         "description": "Essa é uma tarefa teste",
-        "status": "1",
+        "status": "0",
         "file_url": "www.net",
         "updated_at": "2022-06-12T22:48:26.000000Z",
         "created_at": "2022-06-12T22:48:26.000000Z",
@@ -66,7 +65,7 @@ Segue exemplo de um request body:
 
 ## Show
 
-Para retornar a tarefa com o id indicado na url e suas respestivas tags utilize a rota **`/api/task/:id`** com o método **`GET`**. Segue o exemplo de dados enviados:
+Para retornar a tarefa com o id indicado na url e suas respectivas tags utilize a rota **`/api/task/:id`** com o método **`GET`**. 
 
 <larecipe-badge type="primary">GET</larecipe-badge>
 
@@ -79,8 +78,7 @@ Para retornar a tarefa com o id indicado na url e suas respestivas tags utilize 
 
 ## Update
 
-Para fazer uma alteração nos dados de uma tarefa com o id informado na rota utilize a rota **`/api/task/:id`** com o método **`PUT`**. Segue o exemplo de dados enviados:
-
+Para fazer uma alteração nos dados de uma tarefa com o id informado na rota utilize a rota **`/api/task/:id`** com o método **`PUT`**.
 <larecipe-badge type="primary">PUT</larecipe-badge>
 
 ```http
@@ -99,8 +97,7 @@ Para fazer uma alteração nos dados de uma tarefa com o id informado na rota ut
 
 ## Delete
 
-Para excluir uma tarefa cujo o id foi informado na rota utilize a rota **`/api/task/:id`** com o método **`DELETE`**. Segue o exemplo de dados enviados:
-
+Para excluir uma tarefa cujo o id foi informado na rota utilize a rota **`/api/task/:id`** com o método **`DELETE`**.
 <larecipe-badge type="primary">DELETE</larecipe-badge>
 
 ```http
@@ -111,8 +108,8 @@ Para excluir uma tarefa cujo o id foi informado na rota utilize a rota **`/api/t
 
 ## updateStatus
 
-Para realizar a atualização do status da tarefa a rota **`/api/task/:id/status`** com o método **`PATCH`**. Segue o exemplo de dados enviados:<br>
-O campo status segue uma regra de progressão : BACKLOG(0)->IN_PROGRESS(1)->WAITING_CUSTOMER_APPROVAL(2)->APPROVED(3)
+Para realizar a atualização do status da tarefa utilize a rota **`/api/task/:id/status`** com o método **`PATCH`**.<br>
+O campo status segue uma regra de progressão automática: BACKLOG(0)->IN_PROGRESS(1)->WAITING_CUSTOMER_APPROVAL(2)->APPROVED(3)
 
 <larecipe-badge type="primary">PATCH</larecipe-badge>
 
@@ -125,7 +122,7 @@ O campo status segue uma regra de progressão : BACKLOG(0)->IN_PROGRESS(1)->WAIT
 
 ## getUrl
 
-Para retornar o file_url da tarefa cujo id indicado na rota utilize a rota **`/api/task/{id}/file_url`** com o método **`GET`**. Segue o exemplo de dados enviados:<br>
+Para retornar o file_url da tarefa cujo id indicado na rota utilize a rota **`/api/task/{id}/file_url`** com o método **`GET`**.<br>
 Apenas tarefas com status APPROVED(3) poderão ser retornados
 
 <larecipe-badge type="primary">GET</larecipe-badge>
