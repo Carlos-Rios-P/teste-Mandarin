@@ -7,8 +7,6 @@
 * [Show](#section-2)
 * [Update](#section-3)
 * [Delete](#section-4)
-* [updateStatus](#section-5)
-* [getUrl](#section-6)
 
 <a name="section-0"></a>
 

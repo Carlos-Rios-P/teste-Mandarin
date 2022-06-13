@@ -25,7 +25,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'status' => 'required|integer|between:1,3',
+            'status' => 'required|integer|between:0,3',
             'file_url' => 'required'
         ];
     }

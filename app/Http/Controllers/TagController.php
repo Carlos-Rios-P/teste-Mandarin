@@ -52,7 +52,7 @@ class TagController extends Controller
             return response()->json($tag, 200);
 
         } catch (\Throwable $th) {
-            return response()->json(['erro' => "Não possui nenhuma tag com o id $id"]);
+            return response()->json(['erro' => "Não possui nenhuma tag com o id $id"], 404);
         }
     }
 
@@ -75,7 +75,7 @@ class TagController extends Controller
             return response()->json($tag, 200);
 
         } catch (\Throwable $th) {
-            echo 'oi';
+            return response()->json(['erro' => "Não possui nenhuma tag com o id $id"], 404);
         }
     }
 
