@@ -56,7 +56,7 @@ class TaskTest extends TestCase
 
     public function test_task_show_id_invalid()
     {
-        $response = $this->get('/api/task/1');
+        $response = $this->get('/api/task/99999');
 
         $response->assertStatus(404);
     }
