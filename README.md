@@ -1,64 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Teste desafio PHP
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Será necessário desenvolver uma API em PHP para gerenciamento de tarefas / entrega de arquivos para o cliente.
+- <b>Importante</b>: Este teste será utilizado única e exclusivamente para a avaliação técnica do candidato à vaga.
+- A aplicação pode ser desenvolvida com qualquer framework PHP, ou implementação pura em PHP, mas temos preferência por Laravel.
+- Pode ser usado qualquer banco de dados, mas temos preferência por MySQL.
+- Será avaliado no teste:
+  - Tempo de execução do teste;
+  - Organização do código;
+  - Limpeza do código;
+  - Performance dos algoritmos e queries do banco (podem ser usados ORMs/Query Builders).
+- Enviar junto ao teste um documento de texto ou semelhante, com um guia simples e prático de como rodaremos sua aplicação para testar.
+- Caso crie uma request collection no Postman/Insomnia ou qualquer ferramenta de requisições HTTP, nos envie junto ao desafio.
+- Desafios extras (não são obrigatórios mas dão alguns pontos adicionais):
+  - Utilizar migrations e seeders para a aplicação;
+  - Deploy no Heroku ou qualquer plataforma cloud;
+  - Conteinerização da aplicação (Docker);
+  - Testes unitários / testes de integração.
+- Após a conclusão do teste, deve ser criado um repositório no GitHub com o código, e o link do repositório deve ser enviado por e-mail para <b>fernando@mandarin.com.br</b> e <b>matheus.sartori@mandarin.com.br</b>
+- Após o recebimento do teste, consideramos que o prazo para entrega é de 5 dias úteis.
 
-## About Laravel
+## Modelos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Tarefa
+<table>
+  <thead>
+    <tr>
+      <th>Dado</th>
+      <th>Descrição</th>
+      <th>Valor padrão</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>ID da tarefa. Pode ser incremental ou UUID.</td>
+      <td>Automático (UUID ou AUTOINCREMENT)</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Nome da tarefa.</td>
+      <td>Não possui valor padrão.</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Descrição da tarefa.</td>
+      <td>Não possui valor padrão.</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Status da tarefa. Pode ter os valores <i>backlog</i>, <i>in_progress</i>, <i>waiting_customer_approval</i>, <i>approved</i>.</td>
+      <td><i>backlog</i></td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>file_url</td>
+      <td>Link com material aprovado pelo cliente (dado fictício).</td>
+      <td>Não possui valor padrão.</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Data da criação do registro.</td>
+      <td>NOW()</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Data da última atualização do registro.</td>
+      <td>NOW()</td>
+      <td>NÃO</td>
+    </tr>
+  </tbody>
+</table>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Tags das tarefas
+<table>
+  <thead>
+    <tr>
+      <th>Dado</th>
+      <th>Descrição</th>
+      <th>Valor padrão</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>ID do registro. Pode ser incremental ou UUID.</td>
+      <td>Automático (UUID ou AUTOINCREMENT)</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>tag_name</td>
+      <td>Nome da tag.</td>
+      <td>Não possui valor padrão.</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>task_id</td>
+      <td>ID da tarefa.</td>
+      <td>Não possui valor padrão.</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Data da criação do registro.</td>
+      <td>NOW()</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Data da última atualização do registro.</td>
+      <td>NOW()</td>
+      <td>NÃO</td>
+    </tr>
+  </tbody>
+</table>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Rotas da aplicação:
 
-## Learning Laravel
+- /task [<b>POST</b>]:
+  - Rota para cadastrar uma tarefa.
+  - Os dados devem ser validados para evitar erros na camada do banco de dados ou aplicação.
+  - A tarefa criada deve ser retornada na resposta da requisição.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- /task/:id [<b>PUT</b>]:
+  - Rota para editar uma tarefa.
+  - Os dados devem ser validados para evitar erros na camada do banco de dados ou aplicação.
+  - Não é necessário retornar nada nessa rota.
 
-## Laravel Sponsors
+- /task/:id/status [<b>PATCH</b>]:
+  - Rota para alterar o status de uma tarefa.
+  - O status apenas pode ser alterado respeitando os estágios da tarefa:
+    - BACKLOG -> IN_PROGRESS
+    - IN_PROGRESS -> WAITING_CUSTOMER_APPROVAL
+    - WAITING_CUSTOMER_APPROVAL -> APPROVED
+  - Os dados devem ser validados para evitar erros na camada do banco de dados ou aplicação.
+  - Não é necessário retornar nada nessa rota.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+- /task/:id/tag [<b>POST</b>]:
+  - Rota para criar e adicionar uma tag para uma tarefa.
+  - Os dados devem ser validados para evitar erros na camada do banco de dados ou aplicação.
+  - Não é necessário retornar nada nessa rota.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- /task [<b>GET</b>]:
+  - Rota para listar todas as tarefas.
+  - Deve retornar todas as tarefas cadastradas no banco de dados.
+  - As tags atribuídas as tarefas devem ser retornadas junto as tarefas.
+  - O campo file_url não deve ser retornado nesta rota.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- /task/:id/file_url [<b>GET</b>]:
+  - Rota para devolver o link com o material aprovado pelo cliente.
+  - A rota só pode devolver o link, caso o status da tarefa seja <i>approved</i>.
